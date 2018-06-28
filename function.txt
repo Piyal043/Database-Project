@@ -1,0 +1,9 @@
+create or replace function bill(v_id in VEHICLE.VEHICLE_ID%type)return integer is
+bill integer;
+
+begin
+    select tole into bill from vehicle where vehicle_id=v_id;
+    return bill;
+    
+end;
+/

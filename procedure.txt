@@ -1,0 +1,28 @@
+/*<TOAD_FILE_CHUNK>*/
+create or replace procedure deduct(own_id in OWNER.VOTER_ID%type) is
+balance OWNER.CURRENT_CREDIT%type;
+expirity OWNER.VALIDITY_TILL%type;
+vid VEHICLE.VEHICLE_ID%type;
+money integer;
+
+begin
+    select validity_till into expirity from owner where voter_id=own_id;
+    if expirity>current_date
+    then DBMS_OUTPUT.PUT_LINE('Fit for ride. It will be expired :' || expirity);
+    else DBMS_OUTPUT.PUT_LINE('Date has been expired');
+    end if;
+    
+    select current_credit into balance from owner where voter_id=own_id;
+    select included_vehicle into vid from owner where voter_id=own_id;
+    money:=bill(vid);
+    if balance<money
+    then DBMS_OUTPUT.PUT_LINE('Not Enogh balance');
+    else
+    balance:=balance-money;
+    update owner set current_credit=balance where voter_id=own_id;
+    select current_credit into balance from owner where voter_id=own_id;
+    DBMS_OUTPUT.PUT_LINE('Balance is deducated. Current Balance: ' || balance);
+    end if;
+    
+end;
+/

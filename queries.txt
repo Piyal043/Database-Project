@@ -1,0 +1,30 @@
+update owner set current_credit=1000 where user_name='Piyal';
+
+select user_name,current_credit as Balance from owner;
+
+select a.user_name,b.tole_center_no,b.time,a.address from owner a, tole_office b where a.included_vehicle=200;
+describe owner;
+alter table owner add blood varchar(20);
+describe owner;
+alter table owner rename column blood to blood_group;
+update owner set blood_group='A+' where user_name='Piyal';
+alter table owner drop column blood_group;
+select user_name,current_credit from owner;
+select distinct user_name,current_credit from owner;
+select all user_name from owner;
+select current_credit*10 from owner;
+select user_name,current_credit from owner where current_credit>700;
+select * from owner,vehicle;
+select user_name,vehicle_id as vehicle from owner,vehicle where included_vehicle=vehicle_id;
+select user_name from owner where user_name like '%a%';
+select user_name,current_credit from owner order by user_name;
+select user_name,current_credit from owner where current_credit between 200 and 700;
+select user_name,current_credit from owner where current_credit in(200,700);
+select count(user_name) from owner;
+select sum(current_credit) from owner;
+select avg(current_credit) from owner;
+select max(current_credit) from owner;
+select min(current_credit) from owner;
+
+select driving_license_no,sum(bill) from tole_office group by driving_license_no;
+select driving_license_no,sum(bill) from tole_office group by driving_license_no having sum(bill)>100;

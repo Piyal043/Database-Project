@@ -1,0 +1,7 @@
+set serveroutput on
+create or replace trigger tgr1 before insert on owner for each row
+begin 
+ :new.license_issued :=current_date;
+ :new.validity_till:=current_date+730;
+end;
+/

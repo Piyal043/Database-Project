@@ -1,0 +1,45 @@
+drop table police;
+drop table tole_office;
+drop table owner;
+drop table vehicle;
+
+create table vehicle
+(
+	vehicle_id integer,
+	v_type varchar(20),
+	primary key(vehicle_id)
+);
+create table owner
+(
+	user_name varchar(20) not null,
+	voter_id varchar(20),
+	address varchar(20) not null,
+	account integer not null,
+	current_credit integer,
+	included_vehicle integer,
+	info varchar(20),
+	license_issued date,
+	validity_till date,
+	primary key(voter_id),
+	foreign key(included_vehicle) references vehicle(vehicle_id)
+);
+create table police
+(
+	owner_id integer,
+	case varchar(30),
+	bill integer,
+	time date default current_date,
+	primary key(owner_id,time,case),
+	foreign key(owner_id) references owner(voter_id)
+);
+create table tole_office 
+(	
+	tole_center_no integer,
+	driving_license_no varchar(20),
+	bill integer,
+	time DATE,
+	primary key(tole_center_no,vehicle_no,time),
+	foreign key(driving_license_no) references owner(voter_id)
+);
+
+commit;

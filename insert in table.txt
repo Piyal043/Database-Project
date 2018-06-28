@@ -1,0 +1,57 @@
+--vehicle
+
+insert into vehicle(vehicle_id,v_type,tole)
+	values(200,'Private Car',200);
+insert into vehicle(vehicle_id,v_type,tole)
+	values(201,'Truck',300);
+insert into vehicle(vehicle_id,v_type,tole)
+	values(202,'Van',50);
+insert into vehicle(vehicle_id,v_type,tole)
+	values(203,'Rickshaw',50);
+insert into vehicle(vehicle_id,v_type,tole)
+	values(204,'Bike',100);
+insert into vehicle(vehicle_id,v_type,tole)
+	values(205,'Mahendra',150);
+
+--owner
+
+insert into owner(user_name,voter_id,address,account,current_credit,included_vehicle,info)
+	values('Piyal',1000,'khulna',2000,500,204,'killer');
+insert into owner(user_name,voter_id,address,account,current_credit,included_vehicle,info)
+	values('Nayan',1001,'khulna',2001,600,201,'Rapist');
+insert into owner(user_name,voter_id,address,account,current_credit,included_vehicle,info)
+	values('Bayezid',1002,'Dhaka',2002,500,202,'Dancer');
+insert into owner(user_name,voter_id,address,account,current_credit,included_vehicle,info)
+	values('Amrito',1003,'Dhaka',2003,500,202,'blacky');
+insert into owner(user_name,voter_id,address,account,current_credit,included_vehicle,info)
+	values('Rifat',1004,'Dhaka',2003,800,204,'Coder');
+insert into owner(user_name,voter_id,address,account,current_credit,included_vehicle,info)
+	values('Mredul',1005,'khulna',2004,500,205,'Bolod');
+
+
+--police
+
+insert into police(owner_id,case,bill)
+	values(1001,'Accident',100);
+insert into police(owner_id,case,bill)
+	values(1002,'Accident',200);
+insert into police(owner_id,case,bill)
+	values(1003,'Accident',300);
+insert into police(owner_id,case,bill)
+	values(1004,'Accident',400);
+insert into police(owner_id,case,bill)
+	values(1005,'Accident',500);
+
+--tole_office
+
+
+insert into tole_office(tole_center_no,driving_license_no)
+	values(1,1000);
+insert into tole_office(tole_center_no,vehicle_no,driving_license_no)
+	values(1,1001);
+insert into tole_office(tole_center_no,vehicle_no,driving_license_no)
+	values(2,1000);
+insert into tole_office(tole_center_no,vehicle_no,driving_license_no)
+	values(2,1001);
+insert into tole_office(tole_center_no,vehicle_no,driving_license_no)
+	values(3,1000);

@@ -1,0 +1,9 @@
+set serveroutput on
+create or replace trigger tgr1 before insert on tole_office  for each row
+declare
+vid OWNER.VOTER_ID%type;
+begin 
+ :new.time :=current_date;
+ deduct(:new.driving_license_no); 
+end;
+/
